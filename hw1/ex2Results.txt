@@ -1,0 +1,5 @@
+The number of comparisons for n = 100 is 2544
+The number of comparisons for n = 1000 is 252210
+The number of comparisons for n = 10000 is 24952845
+The number of comparisons for n = 100000 is 2502455775
+___________________________________________________________
