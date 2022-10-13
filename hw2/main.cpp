@@ -21,6 +21,14 @@ bool sorted(int* arr, int n ){
     return true;
 }
 
+void printArray(int* arr, int n){
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<", ";
+    }
+    cout<<endl;
+
+}
+
 void merge(int*arr, int l, int mid, int r){
     int* leftArray = new int[mid-l+1];
     int* rightArray = new int[r-mid];
@@ -111,10 +119,32 @@ void heapSort(int* arr, int n){
     cout<<duration.count()<<endl;
 
 }
-void quickSort(int* arr, int n){
+void quickSort(int* arr, int left, int right){
+    if(left>=right)return;
+    int pivot = left+rand()%(right-left+1);
+    int v= arr[pivot];
+    swap(arr[left], arr[pivot]);
+    int l=left+1;
+    int r=right;
+    while(l<=r){
+        while(l<=r&&arr[l]<=v)l++;
+        while(l<=r&&arr[r]>v)r--;
+        if(l<r){
+            swap(arr[l],arr[r]);
+            l++;
+            r--;
+        }   
+    }
+    swap(arr[r],arr[left]);
+    quickSort(arr,left,r-1);
+    quickSort(arr,r+1,right);
+}
+
+void quickSortDriver(int* arr, int n){
     auto start = chrono::steady_clock::now();
+    quickSort(arr,0,n-1);
     auto end = chrono::steady_clock::now();
-    auto duration = chrono::duration_cast<chrono::seconds>(end-start);
+    auto duration = chrono::duration_cast<chrono::microseconds>(end-start);
     cout<<duration.count()<<endl;    
 
 }
@@ -130,7 +160,7 @@ void runExperimentOne(){
     }
     mergeSortDriver(mArr, 32);
     heapSort(hArr,32);
-    quickSort(qArr,32);
+    quickSortDriver(qArr,32);
     for(int i=31;i>=0;i--){
         mArr[i]=(31-i);
         hArr[i]=(31-i);
@@ -138,7 +168,7 @@ void runExperimentOne(){
     }
     mergeSortDriver(mArr,32);
     heapSort(hArr,32);
-    quickSort(qArr,32);
+    quickSortDriver(qArr,32);
     for(int i=0;i<32;i++){
         int j= rand()%32;
         mArr[i]=j;
@@ -147,20 +177,14 @@ void runExperimentOne(){
     }
     mergeSortDriver(mArr,32);
     heapSort(hArr,32);
-    quickSort(qArr,32);
+    quickSortDriver(qArr,32);
     delete[] mArr;
     delete[] hArr;
     delete[] qArr;
 
 
 }
-void printArray(int* arr, int n){
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<", ";
-    }
-    cout<<endl;
 
-}
 void heapTest(){
     int* arr =new int[33];
     for(int i=0;i<33;i++){
@@ -191,14 +215,28 @@ void mergeTest(){
     else cout<<"Not Sorted"<<endl;
 
 }
+void quickTest(){
+    int* arr= new int[33];
+    for(int i=0;i<33;i++){
+        arr[i]=rand()%33;
+    }
+    printArray(arr,33);
+    quickSortDriver(arr,33);
+    printArray(arr,33);
+    if(sorted(arr,33)==1){
+        cout<<"Sorted"<<endl;
+    }
+    else cout<<"Not Sorted"<<endl;
 
+}
 
 int main(int argc, char** argv){
     srand((unsigned)time(NULL));
     //Command Line Parameter Values
     //1 = mergesort 2=Heapsort 3=Quicksort
    // heapTest();
-   mergeTest();
+   //mergeTest();
+   quickTest();
 
 
 
