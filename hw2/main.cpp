@@ -98,7 +98,7 @@ void mergeSortDriver(int* arr, int n){
     mergeSort(arr,0,n-1);
     auto end = chrono::steady_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(end-start);
-    cout<<"The total number of comparisons for merge sort was "<<compCount<<",and the total time taken was "<<duration.count()<<" microsseconds"<<endl;
+    cout<<"The total number of comparisons for merge sort was "<<compCount<<",and the total time taken was "<<duration.count()<<" microseconds"<<endl;
 
 
 }
@@ -143,7 +143,7 @@ void heapSort(int* arr, int n){
 
     auto end = chrono::steady_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(end-start);
-    cout<<"The total number of comparisons for heap sort was "<<compCount<<" ,and the total time taken was "<<duration.count()<<" microsseconds"<<endl;
+    cout<<"The total number of comparisons for heap sort was "<<compCount<<" ,and the total time taken was "<<duration.count()<<" microseconds"<<endl;
 
 }
 void quickSort(int* arr, int left, int right){
@@ -173,7 +173,7 @@ void quickSortDriver(int* arr, int n){
     quickSort(arr,0,n-1);
     auto end = chrono::steady_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(end-start);
-    cout<<"The total number of comparisons for quick sort was "<<compCount<<" ,and the total time taken was "<<duration.count()<<" microsseconds"<<endl;   
+    cout<<"The total number of comparisons for quick sort was "<<compCount<<" ,and the total time taken was "<<duration.count()<<" microseconds"<<endl;   
 }
 
 void runExperimentOne(){
@@ -233,51 +233,7 @@ void runExperimentOne(){
 
 }
 
-void heapTest(){
-    int* arr =new int[33];
-    for(int i=0;i<33;i++){
-        int j=rand()%1000000;
-        arr[i]=j;
-    }
-    printArray(arr,33);
-    heapSort(arr,33);
-    printArray(arr,33);
-    if(sorted(arr,33)==1){
-        cout<<"Sorted"<<endl;
-    }
-    else cout<<"Not Sorted"<<endl;
 
-}
-
-void mergeTest(){
-    int* arr= new int[33];
-    for(int i=0;i<33;i++){
-        arr[i]=rand()%32;
-    }
-    printArray(arr,33);
-    mergeSortDriver(arr,33);
-    cout<<"The total number of comparisons is "<<compCount<<endl;
-    printArray(arr,33);
-    if(sorted(arr,33)==1){
-        cout<<"Sorted"<<endl;
-    }
-    else cout<<"Not Sorted"<<endl;
-
-}
-void quickTest(){
-    int* arr= new int[33];
-    for(int i=0;i<33;i++){
-        arr[i]=rand()%33;
-    }
-    printArray(arr,33);
-    quickSortDriver(arr,33);
-    printArray(arr,33);
-    if(sorted(arr,33)==1){
-        cout<<"Sorted"<<endl;
-    }
-    else cout<<"Not Sorted"<<endl;
-
-}
 
 void populateArray(int* arr, int n){
     ifstream infile;
@@ -293,6 +249,18 @@ void populateArray(int* arr, int n){
 
 }
 
+/*
+        HOW TO RUN PROGRAM (just in case)
+If you wish to perform experiment 1, simply generate the executable doing 'g++ main.cpp -o prog' and run './prog'
+If you wish to perform experiment 2, you must use a command line argument corresponding to the algorithm you wish to run.
+Command Line Parameter Values: 1 = mergesort 2=Heapsort 3=Quicksort
+So if you want to test mergesort you would do './prog 1' 
+Also, when running experiment 2, please make sure inputFile.txt is in the same directory as the executable, as the program reads from a file to populate the array to ensure 
+the different sorting algorithms get the same arrays to sort.
+
+
+*/
+
 int main(int argc, char** argv){
     srand((unsigned)time(NULL));
     //Command Line Parameter Values
@@ -306,22 +274,14 @@ int main(int argc, char** argv){
             if(paramValue==1)mergeSortDriver(arr,i);
             if(paramValue==2)heapSort(arr,i);
             if(paramValue==3)quickSortDriver(arr,i);
-            sorted(arr,i);
             delete[] arr;
+            resetCompCount();
         }
-         
     }
     else{
         runExperimentOne();
     }
     
-   // heapTest();
-   //mergeTest();
-  // quickTest();
-
-
-
-
 
 }
 
