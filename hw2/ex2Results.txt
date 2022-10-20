@@ -1,0 +1,49 @@
+The total number of comparisons for quick sort was 11535 ,and the total time taken was 530 microsseconds
+THE ARRAY IS SORTED
+Sorted!
+The total number of comparisons for quick sort was 642282 ,and the total time taken was 26091 microsseconds
+THE ARRAY IS SORTED
+Sorted!
+The total number of comparisons for quick sort was 27046405 ,and the total time taken was 1345926 microsseconds
+THE ARRAY IS SORTED
+Sorted!
+
+
+The total number of comparisons for merge sort was 8955,and the total time taken was 322 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for merge sort was 458996,and the total time taken was 16504 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for merge sort was 20105080,and the total time taken was 902787 microsseconds
+THE ARRAY IS SORTED
+
+The total number of comparisons for heap sort was 17326 ,and the total time taken was 676 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for heap sort was 899250 ,and the total time taken was 39507 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for heap sort was 39604635 ,and the total time taken was 2289513 microsseconds
+THE ARRAY IS SORTED
+
+_________________________________________________________________________________________________________________________________________
+
+The total number of comparisons for merge sort was 8921,and the total time taken was 383 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for merge sort was 458954,and the total time taken was 22150 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for merge sort was 20104905,and the total time taken was 933728 microsseconds
+THE ARRAY IS SORTED
+
+The total number of comparisons for heap sort was 17283 ,and the total time taken was 1024 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for heap sort was 898842 ,and the total time taken was 48821 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for heap sort was 39603814 ,and the total time taken was 2215196 microsseconds
+THE ARRAY IS SORTED
+
+The total number of comparisons for quick sort was 11119 ,and the total time taken was 445 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for quick sort was 599478 ,and the total time taken was 41510 microsseconds
+THE ARRAY IS SORTED
+The total number of comparisons for quick sort was 26623113 ,and the total time taken was 1400536 microsseconds
+THE ARRAY IS SORTED
+
+_________________________________________________________________________________________________________________________________________
