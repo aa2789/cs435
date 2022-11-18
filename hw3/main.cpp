@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <unordered_map>
 using namespace std;
 
 void radixSort(int r, int c, char** P, char** S){
@@ -86,15 +85,14 @@ void initializePArray(char** P, char** S, int r){
     }
 }
 
-int main(){
-    string infile="";
-    string outfile="";
-    cout<<"Please specify the input file (default = f.txt): ";
-    getline(cin,infile);
-    cout<<"Please specify the output file (default = g.txt): ";
-    getline(cin, outfile);
-    if(infile.length()==0)infile="f.txt";
-    if(outfile.length()==0)outfile="g.txt";
+int main(int argc, char** argv){
+    if(argc<3){
+        cout<<"Please specify the input file (default = f.txt), and Please specify the output file (default = g.txt)";
+        return 0;
+    }
+    
+    string infile=argv[1];
+    string outfile=argv[2];
 
     char** S = new char*[1000];
     for(int i=0;i<1000;i++){
